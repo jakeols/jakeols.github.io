@@ -1,112 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Jake Ols</title>
+---
+layout: default
+---
 
+<main id="scroll" class="home" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    {% for post in site.posts %}
+        <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+                <a class="datetime" href="{{ post.url | prepend: site.baseurl }}">
+                    <meta itemprop="datePublished" content="{{post.date}}">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        <span class="day">
+                            {{ post.date | date: "%d" }}
+                        </span>
+                        <span class="month-year">
+                            {{ post.date | date: "%B %Y" }}
+                        </span>
+                    </time>
+                </a>
+                <div class="content">
+                    <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
+                    <p class="description">
+                        {{ post.content | strip_html | truncatewords:40 }}
+                        <a href="{{ post.url | prepend: site.baseurl }}" class="link">Read more about {{post.title}}</a>
+                    </p>
 
-	<!-- Bootstrap itself -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-	<!-- Custom styles -->
-	<link rel="stylesheet" href="assets/css/magister.css">
-
-	<!-- Fonts -->
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-</head>
-
-<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
-<body class="theme">
-
-<nav class="mainmenu">
-	<div class="container">
-		<div class="dropdown">
-			<button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			<!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<li><a href="#head" class="active">Hello</a></li>
-				<li><a href="#about">About me</a></li>
-				<li><a href="#contact">Get in touch</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
-
-
-<!-- Main (Home) section -->
-<section class="section" id="head">
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">
-
-				<!-- Site Title, your name, HELLO msg, etc. -->
-				<h1 class="title">Jake Ols</h1>
-				<h2 class="subtitle">Programming | Photography | Traveling</h2>
-
-				<!-- Short introductory (optional) -->
-				<h3 class="tagline">
-
-				</h3>
-
-				<!-- Nice place to describe your site in a sentence or two -->
-				<!-- <p><a href="/download/" class="btn btn-default btn-lg">Download template now</a></p> -->
-
-			</div> <!-- /col -->
-		</div> <!-- /row -->
-
-	</div>
-</section>
-
-<!-- Second (About) section -->
-<section class="section" id="about">
-	<div class="container">
-
-		<h2 class="text-center title">About me</h2>
-		<div class="row">
-			<div class="col-sm-4 col-sm-offset-2">
-				<h5><strong>Who am I?<br></strong></h5>
-				<p>I'm a 17 year old, originally from Cleveland, Ohio, with a passion for programming, design, and travel. I attend an international traveling IB school, where I have the amazing opportunity to travel and live in three countries per year.</p>
-			</div>
-			<div class="col-sm-4">
-				<h5><strong>What am I up to now?<br></strong></h5>
-				<p>I'm currently involved with a few projects, including <a href="http://bestriking.org"> Be Striking </a>, a non profit designed to help adolescents interested in entrepreneurship, and <a href="http://www.vexumsupply.com"> Vexum Supply</a>, a local handmade clothing line.</p>
-				<h5><strong>Author links<br></strong></h5>
-				<p><a href="https://twitter.com/jakeols">Twitter</a> /<a href="https://github.com/jakeols">GitHub</a> / <a href="http://instagram.com/jakeols">Instagram</a> / <a href="https://www.facebook.com/jake.ols">Facebook</a></p>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-
-<!-- Fourth (Contact) section -->
-<section class="section" id="contact">
-	<div class="container">
-
-		<h2 class="text-center title">Get in touch</h2>
-
-		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<p class="lead">Have any questions?</p>
-				<p>Feel free to email me, or drop me a line in Twitter!</p>
-				<p><b>me@jakeols.com</b><br><br></p>
-				<ul class="list-inline list-social">
-					<li><a href="https://twitter.com/jakeols" class="btn btn-link"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
-					<li><a href="https://github.com/jakeols" class="btn btn-link"><i class="fa fa-github fa-fw"></i> Github</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-</section>
-
-
-<!-- Load js libs only when the page is loaded. -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="assets/js/modernizr.custom.72241.js"></script>
-<!-- Custom template scripts -->
-<script src="assets/js/magister.js"></script>
-</body>
-</html>
+                    <div class="tags">
+                        {% for tag in post.tags %}
+                            <a href="/tags/#{{tag}}">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+        </article>
+    {% endfor %}
+</main>
