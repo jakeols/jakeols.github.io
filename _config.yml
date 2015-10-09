@@ -1,12 +1,12 @@
 # Site settings
 description: A blog about lorem ipsum dolor sit amet
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://jakeols.github.io" # the base hostname & protocol for your site 
+baseurl: "/will-jekyll-template" # the subpath of your site, e.g. /blog
+url: "http://jakeols.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
 # User settings
 username: Jake Ols
 user_description: Coding | Traveling | -boarding
-user_title: Anon Developer
+user_title: Jake Ols
 email: jakeo@tgs.org
 twitter_username: jakeols
 github_username:  jakeols
