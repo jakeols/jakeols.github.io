@@ -1,6 +1,6 @@
 # Site settings
 description: Coding | Traveling | -boarding
-baseurl: "/will-jekyll-template" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://jakeols.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
 # User settings
