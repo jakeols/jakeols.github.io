@@ -4,10 +4,10 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jakeols.github.io" # the base hostname & protocol for your site 
 
 # User settings
-username: Lorem Ipsum
-user_description: Anon Developer at Lorem Ipsum Dolor
+username: Jake Ols
+user_description: Coding | Traveling | -boarding
 user_title: Anon Developer
-email: anon@anon.com
+email: jakeo@tgs.org
 twitter_username: jakeols
 github_username:  jakeols
 
